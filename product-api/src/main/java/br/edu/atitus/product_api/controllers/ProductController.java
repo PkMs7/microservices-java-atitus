@@ -9,13 +9,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @RestController
 @RequestMapping("products")
 public class ProductController {
     private final ProductService service;
 
-    public ProductController(ProductService service) {
+    public ProductController(@Qualifier("productServiceJpa")ProductService service) {
         this.service = service;
     }
 
